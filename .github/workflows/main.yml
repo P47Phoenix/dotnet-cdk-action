@@ -23,6 +23,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          
       - name: tag
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: paulhatch/semantic-version@v4.0.2
