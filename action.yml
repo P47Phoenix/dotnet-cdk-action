@@ -1,16 +1,34 @@
-# action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: '.net AWS CDK GitHub Actions'
+description: 'Runs .net based AWS-CDK via GitHub Actions.'
+author: 'P47_Phoneix <michaelconne@gmail.com>'
+branding:
+  icon: 'terminal'
+  color: 'yellow'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  cdk_stack:
+    description: 'AWS CDK stack name to execute.'
+    default: '*'
+  cdk_version:
+    description: 'AWS CDK version to install.'
+    default: 'latest'
+  cdk_subcommand:
+    description: 'AWS CDK subcommand to execute.'
     required: true
-    default: 'World'
+  cdk_args:
+    description: 'AWS CDK subcommand arguments.'
+    required: false
+  working_dir:
+    description: 'AWS CDK working directory.'
+    default: '.'
+  actions_comment:
+    description: 'Whether or not to comment on pull requests.'
+    default: true
+  debug_log:
+    description: 'Enable debug-log'
+    default: false
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  status_code:
+    description: 'Returned status code.'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+  image: './Dockerfile'
