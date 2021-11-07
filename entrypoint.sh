@@ -82,3 +82,4 @@ function main(){
 	runCdk ${INPUT_CDK_ARGS}
     echo "completed running aws cdk"
 }
+main
