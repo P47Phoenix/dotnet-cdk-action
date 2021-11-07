@@ -72,8 +72,13 @@ ${output}
 }
 
 function main(){
+    echo "parsing imputs"
 	parseInputs
+    echo "changing to workspace"
 	cd ${GITHUB_WORKSPACE}/${INPUT_WORKING_DIR}
+    echo "install aws cdk"
 	installAwsCdk
+    echo "run aws cdk"
 	runCdk ${INPUT_CDK_ARGS}
+    echo "completed running aws cdk"
 }
